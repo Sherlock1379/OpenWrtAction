@@ -1,10 +1,10 @@
 #
-# Copyright (c) 2022-2026 SMALLPROGRAM <https://github.com/smallprogram/OpenWrtAction>
+# Copyright (c) 2022-2026 SMALLPROGRAM <https://github.com/sherlock1379/OpenWrtAction>
 #
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/smallprogram/OpenWrtAction
+# https://github.com/sherlock1379/OpenWrtAction
 # Description: Build OpenWrt using GitHub Actions
 #
 
@@ -141,8 +141,8 @@ jobs:
           git add .
 
           if ! git diff --cached --quiet; then
-            git config user.name "smallprogram"
-            git config user.email "smallprogram@foxmail.com"
+            git config user.name "sherlock1379"
+            git config user.email "sherlock1379@foxmail.com"
             git commit -m "[CI] Configuration: update code for ${{ matrix.source_code_platform }}"
 
             MAX_RETRIES=10
@@ -282,8 +282,8 @@ jobs:
           git add .
 
           if ! git diff --cached --quiet; then
-            git config user.name "smallprogram"
-            git config user.email "smallprogram@foxmail.com"
+            git config user.name "sherlock1379"
+            git config user.email "sherlock1379@foxmail.com"
             git commit -m "[CI] Git Log: update code"
             
             MAX_RETRIES=10
@@ -378,7 +378,7 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         run: |
           sudo -E apt-get -qq update
-          sudo -E apt-get -qq install $(curl -fsSL https://github.com/smallprogram/OpenWrtAction/raw/main/diy_script/${{ matrix.source_code_platform }}_dependence)
+          sudo -E apt-get -qq install $(curl -fsSL https://github.com/sherlock1379/OpenWrtAction/raw/main/diy_script/${{ matrix.source_code_platform }}_dependence)
 
       - name: Initialization Directory
         working-directory: /workdir
@@ -471,7 +471,7 @@ jobs:
 
           REPO_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           PLATFORM_NAME=$(echo "${{ matrix.source_code_platform }}-${{ matrix.platform }}" | tr '[:upper:]' '[:lower:]')
-          IMAGE_NAME="ghcr.io/smallprogram/openwrt-base-cache-$PLATFORM_NAME:latest"
+          IMAGE_NAME="ghcr.io/sherlock1379/openwrt-base-cache-$PLATFORM_NAME:latest"
           
           if docker pull $IMAGE_NAME; then
             echo "==== 发现缓存，开始极速提取 ===="
@@ -633,7 +633,7 @@ jobs:
           df -hT
           REPO_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           PLATFORM_NAME=$(echo "${{ matrix.source_code_platform }}-${{ matrix.platform }}" | tr '[:upper:]' '[:lower:]')
-          IMAGE_NAME="ghcr.io/smallprogram/openwrt-base-cache-$PLATFORM_NAME:latest"
+          IMAGE_NAME="ghcr.io/sherlock1379/openwrt-base-cache-$PLATFORM_NAME:latest"
 
           docker build -t $IMAGE_NAME .
           docker push $IMAGE_NAME
@@ -805,7 +805,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v4
         with:
           token: ${{ secrets.MY_SECRET_PAT }}
-          repository: smallprogram/MyAction
+          repository: sherlock1379/MyAction
           event-type: openwrt_compilation_completed
 
       # - name: Stateful Lifecycle Check
