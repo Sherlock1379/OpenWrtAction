@@ -665,7 +665,7 @@ jobs:
           if [[ "${{ matrix.source_code_platform }}" == "openwrt" ]]; then
             chmod +x $GITHUB_WORKSPACE/${{ matrix.value.DIY_P4_SH }} || true
             source $GITHUB_WORKSPACE/${{ matrix.value.DIY_P4_SH }}
-            install_rustdesk_server
+            # install_rustdesk_server  # 已禁用：网络查询最新版本失败，导致编译中断
           fi
           
 
