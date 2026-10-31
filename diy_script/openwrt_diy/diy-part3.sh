@@ -1,11 +1,11 @@
 #!/bin/bash
 #
-# Copyright (c) 2019-2025 SmallProgram <https://github.com/smallprogram>
+# Copyright (c) 2019-2025 Sherlock1379 <https://github.com/sherlock1379>
 #
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/smallprogram/OpenWrtAction
+# https://github.com/sherlock1379/OpenWrtAction
 # File name: diy-part3.sh
 # Description: OpenWrt DIY script part 3
 # This script will be executed after `make defconfig` and `make download` to fix certain issues.
