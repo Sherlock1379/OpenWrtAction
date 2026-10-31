@@ -1,10 +1,10 @@
 #
-# Copyright (c) 2022-2026 SMALLPROGRAM <https://github.com/smallprogram/OpenWrtAction>
+# Copyright (c) 2022-2026 Sherlock1379 <https://github.com/sherlock1379/OpenWrtAction>
 #
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/smallprogram/OpenWrtAction
+# https://github.com/sherlock1379/OpenWrtAction
 # Description: Build Cache OpenWrt using GitHub Actions
 #
 
@@ -192,7 +192,7 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         run: |
           sudo -E apt-get -qq update
-          sudo -E apt-get -qq install $(curl -fsSL https://github.com/smallprogram/OpenWrtAction/raw/main/diy_script/${{ matrix.source_code_platform }}_dependence)
+          sudo -E apt-get -qq install $(curl -fsSL https://github.com/sherlock1379/OpenWrtAction/raw/main/diy_script/${{ matrix.source_code_platform }}_dependence)
 
       - name: Initialization Directory
         working-directory: /workdir
@@ -285,7 +285,7 @@ jobs:
 
           REPO_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           PLATFORM_NAME=$(echo "${{ matrix.source_code_platform }}-${{ matrix.platform }}" | tr '[:upper:]' '[:lower:]')
-          IMAGE_NAME="ghcr.io/smallprogram/openwrt-base-cache-$PLATFORM_NAME:latest"
+          IMAGE_NAME="ghcr.io/sherlock1379/openwrt-base-cache-$PLATFORM_NAME:latest"
           
           if docker pull $IMAGE_NAME; then
             echo "==== 发现缓存，开始极速提取 ===="
@@ -443,7 +443,7 @@ jobs:
           df -hT
           REPO_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           PLATFORM_NAME=$(echo "${{ matrix.source_code_platform }}-${{ matrix.platform }}" | tr '[:upper:]' '[:lower:]')
-          IMAGE_NAME="ghcr.io/smallprogram/openwrt-base-cache-$PLATFORM_NAME:latest"
+          IMAGE_NAME="ghcr.io/sherlock1379/openwrt-base-cache-$PLATFORM_NAME:latest"
 
           docker build -t $IMAGE_NAME .
           docker push $IMAGE_NAME
