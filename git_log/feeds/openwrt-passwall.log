@@ -1,0 +1,10 @@
+<details> <summary> <b>openwrt-passwall new commit log :rocket: </b> </summary>
+
+#### [:mega: Full Changelog. ](https://github.com/Openwrt-Passwall/openwrt-passwall/compare/c873b70eee09541b8ed69c1dcf750ada5b5aeeb6...2a38efbb4a87c904a16c37735388daec28c9c8fd)  
+:heavy_exclamation_mark: The list displays only the latest 15 commit logs.  
+
+SHA|Author|Date|Message
+-|-|-|-
+2a38efbb|A-BO|Sun Nov 1 13:11:14 2026 +0800|luci: restart rpcd only when ACL file changes during luci update
+7fd613a2|RoomWithOutRoof|Sun Nov 1 12:26:17 2026 +0800|luci: fix typos in English help text and comments (#4506)
+</details>
