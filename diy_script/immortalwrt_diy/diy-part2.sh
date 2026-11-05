@@ -96,7 +96,19 @@ echo "🎉 移植完毕"
 rm -rf ./feeds/packages/net/open-app-filter
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.10.0.253/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.89.2/g' package/base-files/files/bin/config_generate
+
+# Force default LAN IP on first boot (runs after config_generate)
+mkdir -p files/etc/uci-defaults
+cat << 'EOF' > files/etc/uci-defaults/99-set-lan-ip
+#!/bin/sh
+# Force LAN IP to 192.168.89.2 (runs once, on first boot)
+uci set network.lan.ipaddr='192.168.89.2'
+uci set network.lan.netmask='255.255.255.0'
+uci commit network
+exit 0
+EOF
+chmod +x files/etc/uci-defaults/99-set-lan-ip
 
 # fixed rust host build download llvm in ci error
 # sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' package/custom_overrides/rust/Makefile
