@@ -4,11 +4,6 @@
 export repos=(
   "src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main"
   "src-git passwall https://github.com/Openwrt-Passwall/openwrt-passwall.git;main"
-  "src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2.git;main"
-  "src-git helloworld https://github.com/fw876/helloworld;master"
-  "src-git OpenClash https://github.com/vernesong/OpenClash;master"
-  "src-git ghfu https://github.com/smallprogram/openwrt-ghfu.git;main"
-  "src-git accesspolicycontroller https://github.com/smallprogram/openwrt-access-policy-controller.git;main"
 )
 
 # 自定义软件包列表
@@ -48,18 +43,9 @@ clone_custom_packages () {
     # 该主题 Makefile 使用相对路径 ../../luci.mk, 在 package/custom_packages 下无法找到, 改为 feeds 中的路径
     # sed -i 's#^include[[:blank:]]\+\.\./\.\./luci\.mk#include $(TOPDIR)/feeds/luci/luci.mk#' "${path}luci-theme-ctmodem/luci-theme-ctmodem/Makefile"
 
-    git clone https://github.com/sbwml/luci-app-mosdns -b v5 ${path}mosdns
-
-    git clone https://github.com/sirpdboy/netspeedtest.git ${path}netspeedtest
-
     # git clone https://github.com/pymumu/openwrt-smartdns.git ${path}openwrt-smartdns
     git clone https://github.com/pymumu/luci-app-smartdns.git ${path}luci-app-smartdns
 
-    git clone https://github.com/timsaya/openwrt-bandix.git ${path}openwrt-bandix
-    git clone https://github.com/timsaya/luci-app-bandix.git ${path}luci-app-bandix
-
-    git clone https://github.com/timsaya/openwrt-bandix-plus.git ${path}openwrt-bandix-plus
-    git clone https://github.com/timsaya/luci-app-bandix-plus.git ${path}luci-app-bandix-plus
     
     # git clone https://github.com/destan19/OpenAppFilter.git ${path}OpenAppFilter
 
