@@ -1,5 +1,9 @@
 <details> <summary> <b>luci-theme-vantage new commit log :rocket: </b> </summary>
 
-<b>Initial commit log for luci-theme-vantage, no previous SHA.</b>
+#### [:mega: Full Changelog. ](https://github.com/anothaDev/luci-theme-vantage/compare/9d6669ca006c4df8a14581854e3171e368700cb5...c8f0d04058835a1f1a04dcb73ec01754f7e1c5b0)  
+:heavy_exclamation_mark: The list displays only the latest 15 commit logs.  
 
+SHA|Author|Date|Message
+-|-|-|-
+c8f0d04|anothaDev|Fri Nov 6 18:50:31 2026 +0100|Show the Wired branch on routers without Wi-Fi (#99)
 </details>
