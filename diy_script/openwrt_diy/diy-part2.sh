@@ -87,19 +87,15 @@ inject_feed "https://github.com/openwrt/packages.git" "feeds/packages/lang" \
 #     "modules/luci-mod-dashboard"
 
 inject_feed "https://github.com/immortalwrt/packages.git" "feeds/packages/net" \
-    "net/ddns-go" \
     "net/vlmcsd"
 
 # 2. 注入 LuCI 界面
 inject_feed "https://github.com/immortalwrt/luci.git" "feeds/luci/applications" \
-    "applications/luci-app-homeproxy" \
-    "applications/luci-app-ddns-go" \
     "applications/luci-app-diskman" \
-    "applications/luci-app-eqos" \
-    "applications/luci-app-netdata" \
     "applications/luci-app-ramfree" \
     "applications/luci-app-vlmcsd" \
-    "applications/luci-app-wechatpush"
+    "applications/luci-app-arpbind" \
+    "applications/luci-app-cifs-mount"
 
 echo "🎉 所有插件注入完毕，保持了原汁原味的 Makefile 相对路径！"
 #--------------------------------------------------------------end 移植包--------------------------------------------------------
@@ -107,10 +103,19 @@ echo "🎉 所有插件注入完毕，保持了原汁原味的 Makefile 相对�
 
 #-----------------------------------------------修改脚本------------------------------------------------------------
 # Modify default IP
-sed -i 's/192.168.1.1/10.10.0.253/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.89.2/g' package/base-files/files/bin/config_generate
 
-# fixed luci-app-rustdesk-server reset config when update
-rm -rf feeds/luci/applications/luci-app-rustdesk-server/root/etc/uci-defaults
+# Force default LAN IP on first boot (runs after config_generate)
+mkdir -p files/etc/uci-defaults
+cat << 'EOF' > files/etc/uci-defaults/99-set-lan-ip
+#!/bin/sh
+# Force LAN IP to 192.168.89.2 (runs once, on first boot)
+uci set network.lan.ipaddr='192.168.89.2'
+uci set network.lan.netmask='255.255.255.0'
+uci commit network
+exit 0
+EOF
+chmod +x files/etc/uci-defaults/99-set-lan-ip
 
 # fixed rust host build download llvm in ci error
 # sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' package/custom_overrides/rust/Makefile
