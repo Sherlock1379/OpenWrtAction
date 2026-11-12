@@ -4,11 +4,8 @@
 export repos=(
   "src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main"
   "src-git passwall https://github.com/Openwrt-Passwall/openwrt-passwall.git;main"
-  "src-git passwall2 https://github.com/Openwrt-Passwall/openwrt-passwall2.git;main"
-  "src-git helloworld https://github.com/fw876/helloworld;master"
+  "src-git nikki https://github.com/nikkinikki-org/OpenWrt-nikki.git;main"
   "src-git OpenClash https://github.com/vernesong/OpenClash;master"
-  "src-git ghfu https://github.com/smallprogram/openwrt-ghfu.git;main"
-  "src-git accesspolicycontroller https://github.com/smallprogram/openwrt-access-policy-controller.git;main"
 )
 
 # 自定义软件包列表
@@ -21,13 +18,12 @@ clone_custom_packages () {
         PATCHES_SRC_DIR="../OpenWrtAction"
     fi
 
-
     rm -rf ${path}
     mkdir -p ${path}
 
     # 主题
     git clone https://github.com/itsmaiGe/luci-theme-7dollar.git ${path}luci-theme-7dollar
-    
+
     git clone https://github.com/jerrykuku/luci-theme-argon.git ${path}luci-theme-argon
 
     git clone https://github.com/mrjoechen/luci-theme-carbon.git ${path}luci-theme-carbon
@@ -46,43 +42,29 @@ clone_custom_packages () {
 
     git clone https://github.com/anothaDev/luci-theme-vantage.git ${path}luci-theme-vantage
 
-
     # git clone https://github.com/hakureiyuyuko/luci-theme-ctmodem.git ${path}luci-theme-ctmodem
     # 该主题 Makefile 使用相对路径 ../../luci.mk, 在 package/custom_packages 下无法找到, 改为 feeds 中的路径
     # sed -i 's#^include[[:blank:]]\+\.\./\.\./luci\.mk#include $(TOPDIR)/feeds/luci/luci.mk#' "${path}luci-theme-ctmodem/luci-theme-ctmodem/Makefile"
 
-    git clone https://github.com/sbwml/luci-app-mosdns -b v5 ${path}mosdns
-
-    git clone https://github.com/sirpdboy/netspeedtest.git ${path}netspeedtest
-
     # git clone https://github.com/pymumu/openwrt-smartdns.git ${path}openwrt-smartdns
     git clone https://github.com/pymumu/luci-app-smartdns.git ${path}luci-app-smartdns
 
-    git clone https://github.com/timsaya/openwrt-bandix.git ${path}openwrt-bandix
-    git clone https://github.com/timsaya/luci-app-bandix.git ${path}luci-app-bandix
-
-    git clone https://github.com/timsaya/openwrt-bandix-plus.git ${path}openwrt-bandix-plus
-    git clone https://github.com/timsaya/luci-app-bandix-plus.git ${path}luci-app-bandix-plus
-    
     # git clone https://github.com/destan19/OpenAppFilter.git ${path}OpenAppFilter
-
-    
 
     # sed -i '/^[\t ]*PKG_VERSION:=/ s/\(PKG_VERSION:= *\)[^0-9.]*\([0-9.]*\)[^0-9.]*/\1\2/' "${path}luci-theme-alpha-reborn/Makefile"
     sed -i '/^[\t ]*PKG_VERSION:=/ s/\(PKG_VERSION:= *\)[^0-9.]*\([0-9.]*\)[^0-9.]*/\1\2/' "${path}luci-theme-alpha/Makefile"
 
-    
     local target="luci.main.mediaurlbase="
 
     echo "开始全量扫描并注释目标字符串, 取消主题自动设置为默认主题..."
     # 1. 扫描所有 Makefile 文件
     # 2. 扫描所有 uci-defaults 目录下的文件
     find "$path" -type f \( -name "Makefile" -o -path "*/etc/uci-defaults/*" \) | while read -r file; do
-        
+
         # 这里的 grep 需要更宽松，因为 Makefile 里的行首可能是 Tab 或者是脚本定义的起始
         if grep -q "$target" "$file"; then
             echo "命中目标: $file"
-            
+
             # 针对 Makefile 的特殊处理：
             # Makefile 里的 postrm 脚本行首通常会有空格或 Tab
             # 我们直接匹配包含 target 的行，并在该行非空字符前加 #
