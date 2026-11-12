@@ -1,5 +1,9 @@
 <details> <summary> <b>luci-theme-carbon new commit log :rocket: </b> </summary>
 
-<b>Initial commit log for luci-theme-carbon, no previous SHA.</b>
+#### [:mega: Full Changelog. ](https://github.com/mrjoechen/luci-theme-carbon/compare/4b57f8fffc7fa29c4ebf850337497e5d83a8c021...b2680f64bdc960d479fbae5804fd57ee74d3ca66)  
+:heavy_exclamation_mark: The list displays only the latest 15 commit logs.  
 
+SHA|Author|Date|Message
+-|-|-|-
+b2680f6|mrjoechen|Thu Nov 12 19:48:23 2026 +0800|Fix checked switch color in dark mode
 </details>
