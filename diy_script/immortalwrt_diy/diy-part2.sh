@@ -96,7 +96,7 @@ echo "🎉 移植完毕"
 rm -rf ./feeds/packages/net/open-app-filter
 
 # Modify default IP
-sed -i 's/192.168.1.1/10.10.0.253/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.89.2/g' package/base-files/files/bin/config_generate
 
 # fixed rust host build download llvm in ci error
 # sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' package/custom_overrides/rust/Makefile
@@ -163,6 +163,21 @@ EOF
 
 # 3. 赋予脚本执行权限
 chmod +x files/etc/uci-defaults/99-custom-ssh-config
+
+# --- 修改默认 LAN IP 为 192.168.89.2 ---
+cat << 'EOF' > files/etc/uci-defaults/99-set-lan-ip
+#!/bin/sh
+
+# 首次启动时将 LAN 口固定为 192.168.89.2
+uci -q set network.lan.ipaddr='192.168.89.2'
+uci -q set network.lan.netmask='255.255.255.0'
+uci -q commit network
+
+exit 0
+EOF
+
+chmod +x files/etc/uci-defaults/99-set-lan-ip
+# --- End 修改默认 LAN IP ---
 
 # --- End Modify SSH Configuration ---
 #------------------------------------------------end 修改脚本-------------------------------------------------------
