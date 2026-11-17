@@ -1,12 +1,12 @@
 <details> <summary> <b>packages new commit log :rocket: </b> </summary>
 
-#### [:mega: Full Changelog. ](https://github.com/openwrt/packages/compare/c2c619e6f065b238ab000b6cfc5afa238658b0c9...d0c8b47342d482de8ec0584a8af4f0d4a1fe36de)  
+#### [:mega: Full Changelog. ](https://github.com/openwrt/packages/compare/d0c8b47342d482de8ec0584a8af4f0d4a1fe36de...7953989f4a3b7c0af61ffb5971616ce155fe5393)  
 :heavy_exclamation_mark: The list displays only the latest 15 commit logs.  
 
 SHA|Author|Date|Message
 -|-|-|-
-d0c8b4734|Josef Schlehofer|Mon Oct 12 00:05:01 2026 +0200|librespeed-common: refuse a zero step and a trailing comma
-2da3a56ff|Josef Schlehofer|Mon Sep 28 09:15:13 2026 +0200|librespeed-common: add a weekly schedule interval
-4f122d498|Josef Schlehofer|Thu Sep 24 08:24:24 2026 +0200|librespeed-common: measure and schedule per interface
-34bcd635e|Josef Schlehofer|Sun Oct 11 07:54:03 2026 +0200|librespeed-common: free the lock as soon as a run ends
+7953989f4|Josef Schlehofer|Sat Nov 14 04:23:31 2026 +0100|git: update to 2.50.2
+889d22898|Josef Schlehofer|Mon Oct 26 12:52:47 2026 +0100|mosquitto: update to 2.0.23
+baa9a65d8|Josef Schlehofer|Tue Nov 17 09:11:27 2026 +0100|librespeed-cli: update to 1.0.15
+a6e08334e|Josef Schlehofer|Sat Nov 14 17:29:34 2026 +0100|librespeed-cli: fail the run when no selected server answers
 </details>

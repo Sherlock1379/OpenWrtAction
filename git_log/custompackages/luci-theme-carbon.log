@@ -1,0 +1,12 @@
+<details> <summary> <b>luci-theme-carbon new commit log :rocket: </b> </summary>
+
+#### [:mega: Full Changelog. ](https://github.com/mrjoechen/luci-theme-carbon/compare/b20ac0c6a079899d47ea2362822d6be34af2a3c9...cd820f2f8c3c6c71d3f750eb7667096379fe53e2)  
+:heavy_exclamation_mark: The list displays only the latest 15 commit logs.  
+
+SHA|Author|Date|Message
+-|-|-|-
+cd820f2|mrjoechen|Tue Nov 17 19:49:25 2026 +0800|Fix container memory reporting with consistent proc data
+364d79a|Joe Chen|Tue Nov 17 19:19:55 2026 +0800|Update README.zh-CN.md with demo links
+22133cb|Joe Chen|Tue Nov 17 19:19:38 2026 +0800|Change video source link in README
+42e68e2|Joe Chen|Tue Nov 17 19:17:17 2026 +0800|Add video demo to README
+</details>
