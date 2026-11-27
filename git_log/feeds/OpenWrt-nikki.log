@@ -1,0 +1,17 @@
+<details> <summary> <b>OpenWrt-nikki new commit log :rocket: </b> </summary>
+
+#### [:mega: Full Changelog. ](https://github.com/nikkinikki-org/OpenWrt-nikki/compare/3799926b147d7065ac98508f16951f8714e53659...aaf46bf02a9ab2b5a8ab3fcaa5f84c99e56585bf)  
+:heavy_exclamation_mark: The list displays only the latest 15 commit logs.  
+
+SHA|Author|Date|Message
+-|-|-|-
+aaf46bf|github-actions[bot]|Thu Nov 12 08:52:43 2026 +0800|chore: update mihomo-alpha to 0455d0d (#898)
+0c56ba5|github-actions[bot]|Thu Nov 12 08:49:35 2026 +0800|chore: update mihomo-meta to v1.19.34 (#918)
+78e1a75|Joseph Mory|Wed Oct 14 17:11:28 2026 +0800|fix: do not restart cron service after crontab changed
+31339d5|Joseph Mory|Sat Oct 10 17:27:41 2026 +0800|chore: bump version to 1.26.2
+20b2abf|Joseph Mory|Thu Oct 8 10:12:39 2026 +0800|fix: test profile execution with environment variables
+9d561a2|Joseph Mory|Thu Oct 8 09:15:01 2026 +0800|feat: support mips tun stack
+bf032e5|github-actions[bot]|Thu Oct 8 09:05:50 2026 +0800|chore: update mihomo-meta to v1.19.32 (#911)
+7b203f6|github-actions[bot]|Thu Sep 17 08:51:24 2026 +0800|chore: update mihomo-meta to v1.19.31 (#906)
+21befe0|akovale2025|Sun Sep 13 21:02:59 2026 -0400|fix: read yq output fully before json() in load_profile (#905)
+</details>
